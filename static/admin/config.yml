@@ -1,0 +1,93 @@
+# This file is a Netlify CMS configuration file.
+
+# Example config.yml: https://github.com/netlify-templates/gatsby-starter-netlify-cms/blob/master/static/admin/config.yml 
+
+# Documentation: https://www.netlifycms.org/docs/configuration-options/#collections
+
+# Doc for Widgets: https://www.netlifycms.org/docs/widgets
+
+# Beta features: https://www.netlifycms.org/docs/beta-features/#folder-collections-media-and-public-folder
+
+backend:
+  name: git-gateway
+  # Branch to update (optional; defaults to master)
+  branch: master 
+
+
+# Adds an interface for drafting, reviewing, and approving posts.
+publish_mode: editorial_workflow
+
+# Where uploaded images are stored in the REPO.
+media_folder: src/images/uploads
+
+# Where uploaded images are stored in the WEBSITE.
+public_folder: /images/uploads
+
+##### Collections ######
+collections:
+  - name: "people"
+    label: "People"
+    folder: "_people/"
+    media_folder: "src/images/people"
+    public_folder: "/images/uploads"
+    create: true
+    editor: 
+      preview: false
+    identifier_field: "name"
+    slug: "{{name}}"
+    extension: "yml"
+    preview_path: "people/{{name}}"
+    summary: "{{name}} - ({{label_singular}})"
+    # Minimum: Name, Status, Education, Profile picture.
+    fields:
+      - label: "Name"
+        name: "name"
+        widget: "string"
+      - label: "Nickname"
+        name: "nickname"
+        widget: "string"
+        required: false
+      - label: "Email (Optional)"
+        name: email
+        required: false
+        widget: "string"
+        pattern: ['^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$', 'Please enter a valid email address.']
+      - label: "LinkedIn Account (Optional)"
+        name: linkedin
+        required: false
+        hint: "E.g. linkedin.com/in/john_doe"
+        widget: "string"
+        pattern: ['^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$', 'Please enter a valid URL.']     # review: see if necessary       
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options:
+          - label: "Graduate Student"
+            value: "grad"
+          - label: "Postdoctoral Researcher"
+            value: "postdoc"
+          - label: "Undergraduate"
+            value: "undergrad"
+          - label: "Lab Alumnus"
+            value: "alum"          
+      - label: "Department"
+        name: "department"
+        widget: "string"
+        hint: "E.g. 'Chemical and Biological Engineering'" # review: hint or comment?
+        required: false
+      - label: "Education"
+        name: "education"
+        widget: "string"
+        hint: "E.g. 'B.A. in Molecular and Cell Biology at UC Berkeley, M.S in Bioengineering at UCSF'"
+      - label: "Project Title"
+        name: "ptitle"
+        widget: "string"
+        required: false
+      - label: "Project Description"
+        name: "pdescription"
+        widget: "text"
+        required: false
+      - label: "Profile Picture!"
+        name: "profilepic"
+        widget: "image"
+        hint: "Please name appropriately. (E.g. john.jpg)"
