@@ -9,7 +9,8 @@
 # Beta features: https://www.netlifycms.org/docs/beta-features/#folder-collections-media-and-public-folder
 
 backend:
-  name: git-gateway
+  name: github
+  repo: ivalexander13/schafferlab
   # Branch to update (optional; defaults to master)
   branch: master 
 
@@ -47,15 +48,15 @@ collections:
         name: "nickname"
         widget: "string"
         required: false
-      - label: "Email (Optional)"
+      - label: "Email"
         name: email
         required: false
         widget: "string"
         pattern: ['^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$', 'Please enter a valid email address.']
-      - label: "LinkedIn Account (Optional)"
+      - label: "LinkedIn Account"
         name: linkedin
         required: false
-        hint: "E.g. linkedin.com/in/john_doe"
+        hint: "E.g. \"linkedin.com/in/john_doe\""
         widget: "string"
         pattern: ['^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$', 'Please enter a valid URL.']     # review: see if necessary       
       - label: "Status"
@@ -73,12 +74,12 @@ collections:
       - label: "Department"
         name: "department"
         widget: "string"
-        hint: "E.g. 'Chemical and Biological Engineering'" # review: hint or comment?
+        hint: "E.g. \"Chemical and Biological Engineering\""
         required: false
       - label: "Education"
         name: "education"
         widget: "string"
-        hint: "E.g. 'B.A. in Molecular and Cell Biology at UC Berkeley, M.S in Bioengineering at UCSF'"
+        hint: "E.g. \"B.A. in Molecular and Cell Biology at UC Berkeley, M.S in Bioengineering at UCSF\""
       - label: "Project Title"
         name: "ptitle"
         widget: "string"
@@ -90,4 +91,4 @@ collections:
       - label: "Profile Picture!"
         name: "profilepic"
         widget: "image"
-        hint: "Please name appropriately. (E.g. john.jpg)"
+        hint: "Please name appropriately (e.g. john.jpg)"
