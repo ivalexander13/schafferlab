@@ -38,7 +38,7 @@ collections:
     slug: "{{name}}"
     extension: "yml"
     preview_path: "people/{{name}}"
-    summary: "{{name}} - ({{label_singular}})"
+    summary: "{{name}} - ({{status}})"
     # Minimum: Name, Status, Education, Profile picture.
     fields:
       - label: "Name"
