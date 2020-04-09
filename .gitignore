@@ -74,3 +74,4 @@ yarn-error.log
 # Reduxcache folders due to errors running "gatsby develop" with VS code open.
 reduxcache*/
 package-lock.json
+.vscode
